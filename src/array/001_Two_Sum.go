@@ -10,7 +10,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/two-sum
 */
-package src
+package array
 
 func twoSum(nums []int, target int) []int {
 	for i := range nums {

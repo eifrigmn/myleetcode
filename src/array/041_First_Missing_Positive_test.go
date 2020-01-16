@@ -1,4 +1,4 @@
-package src
+package array
 
 import (
 	. "github.com/smartystreets/goconvey/convey"

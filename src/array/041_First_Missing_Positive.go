@@ -15,7 +15,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/first-missing-positive
 */
-package src
+package array
 
 import (
 	"sort"

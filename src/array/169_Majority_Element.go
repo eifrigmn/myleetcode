@@ -13,7 +13,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/majority-element
 */
-package src
+package array
 
 import "sort"
 
