@@ -79,3 +79,26 @@ func fizzBuzz1(n int) []string {
 	}
 	return result
 }
+
+func fizzBuzz2(n int) []string {
+	result := []string{}
+
+	for i := 1; i <= n; i++ {
+		newValue := ""
+
+		if i%3 == 0 {
+			newValue += "Fizz"
+		}
+		if i%5 == 0 {
+			newValue += "Buzz"
+		}
+
+		if newValue == "" {
+			newValue = strconv.Itoa(i)
+		}
+
+		result = append(result, newValue)
+	}
+
+	return result
+}

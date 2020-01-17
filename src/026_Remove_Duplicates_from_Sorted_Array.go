@@ -43,7 +43,7 @@ func removeDuplicates(nums []int) int {
 	return numsLength
 }
 
-// 最优解
+// 参考
 func removeDuplicates1(nums []int) int {
 	if len(nums) < 2{
 		return len(nums)
@@ -57,4 +57,22 @@ func removeDuplicates1(nums []int) int {
 		}
 	}
 	return int +1
+}
+
+// 参考
+func removeDuplicates2(nums []int) int {
+	var count int
+
+	if len(nums) == 0{
+		return 0
+	}
+
+	count = 1
+	for idx:=0 ; idx < len(nums) - 1 ; idx++ {
+		if nums[idx] != nums[idx+1]{
+			nums[count] = nums[idx+1]
+			count += 1
+		}
+	}
+	return count
 }

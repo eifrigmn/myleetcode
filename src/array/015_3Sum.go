@@ -74,3 +74,54 @@ func threeSum(nums []int) [][]int{
 	}
 	return res
 }
+
+// 参考
+type IntSlice []int
+func (s IntSlice) Len() int {return len(s)}
+func (s IntSlice) Swap(i, j int){s[i], s[j] = s[j], s[i]}
+func (s IntSlice) Less(i, j int)bool{return s[i] < s[j]}
+
+func threeSum1(nums []int) [][]int {
+	res := [][]int{}
+	sort.Sort(IntSlice(nums))
+
+	l := len(nums)
+	var sum int
+	for i := 0; i < l; {
+		left := i+1
+		right := l-1
+		for left < right {
+			sum = nums[i] + nums[left] + nums[right]
+			if sum == 0 {
+				res = append(res, []int{nums[i], nums[left], nums[right]})
+			}
+
+			if sum > 0 {
+				right--
+				for right > left && nums[right] == nums[right+1] {
+					right--
+				}
+			}else if sum < 0 {
+				left++
+				for left < right && nums[left] == nums[left-1] {
+					left++
+				}
+			}else {
+				left++
+				right--
+				for left < right && nums[left] == nums[left-1] {
+					left++
+				}
+				for right > left && nums[right] == nums[right+1] {
+					right--
+				}
+			}
+		}
+
+		i++
+		for i < l && nums[i] == nums[i-1] {
+			i++
+		}
+	}
+	return res
+}

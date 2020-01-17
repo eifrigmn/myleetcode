@@ -26,30 +26,29 @@
 */
 package src
 
+//func isValid(s string) bool {
+//	bracketsMap := map[uint8]uint8{'{': '}', '[': ']', '(': ')'}
+//	if s == "" {
+//		return true
+//	}
+//	if len(s)/2 != 0 {
+//		return false
+//	}
+//
+//	var stack []uint8
+//	for i := 0; i < len(s); i++ {
+//		if len(stack) > 0 {
+//			if c, ok := bracketsMap[stack[len(stack)-1]]; ok && c == s[i] {
+//				stack = stack[0 : len(stack)-2]
+//				continue
+//			}
+//		}
+//		stack = append(stack, s[i])
+//	}
+//	return len(stack) == 0
+//}
+
 func isValid(s string) bool {
-	bracketsMap := map[uint8]uint8{'{': '}', '[': ']', '(': ')'}
-	if s == "" {
-		return true
-	}
-	if len(s)/2 != 0 {
-		return false
-	}
-
-	var stack []uint8
-	for i := 0; i < len(s); i++ {
-		if len(stack) > 0 {
-			if c, ok := bracketsMap[stack[len(stack)-1]]; ok && c == s[i] {
-				stack = stack[0 : len(stack)-2]
-				continue
-			}
-		}
-		stack = append(stack, s[i])
-	}
-	return len(stack) == 0
-}
-
-// 最优解
-func isValid1(s string) bool {
 	pre := make([]rune, len(s))
 	i := -1
 
@@ -68,4 +67,36 @@ func isValid1(s string) bool {
 
 	return i == -1
 
+}
+
+// 参考
+func isValid1(s string) bool {
+	if len(s) == 0 {return true}
+	stack := []string{}
+	counterPart := map[string]string{
+		"}": "{",
+		"]": "[",
+		")": "(",
+	}
+
+	for i := range s {
+		current := string(s[i])
+
+		if len(stack) != 0 && counterPart[current] != "" {
+			top := stack[len(stack) - 1]
+			if top == counterPart[current] {
+				stack = stack[:len(stack) - 1]
+			} else {
+				return false
+			}
+		} else {
+			stack = append(stack, current)
+		}
+	}
+
+	if len(stack) == 0 {
+		return true
+	}
+
+	return false
 }
