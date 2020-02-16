@@ -3,6 +3,7 @@ package array
 import (
 	"fmt"
 	"testing"
+
 	. "github.com/smartystreets/goconvey/convey"
 )
 
