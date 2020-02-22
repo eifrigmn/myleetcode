@@ -1,4 +1,4 @@
-package linkedList
+package linked_list
 
 // SSL singly linked list
 type SSL struct {

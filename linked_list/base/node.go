@@ -1,4 +1,4 @@
-package linkedList
+package linked_list
 
 type Item interface{}
 
