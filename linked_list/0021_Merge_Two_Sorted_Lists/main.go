@@ -1,10 +1,5 @@
 package linked_list
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -12,12 +7,17 @@ type ListNode struct {
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode{
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	// 设立观察哨
 	r := &ListNode{}
 	list := r
 	for l1 != nil && l2 != nil {
-		if l1.Val>l2.Val {
+		if l1.Val > l2.Val {
 			r.Next = l2
 			l2 = l2.Next
 		} else {

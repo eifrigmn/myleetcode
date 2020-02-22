@@ -5,15 +5,11 @@ import (
 	"testing"
 )
 
-func TestMergeTwoLists(t *testing.T) {
-	// 1->2->4
-	nums1 := []int{1, 2, 4}
-	l1 := arryToSinglyList(nums1)
-	// 1->3->4
-	nums2 := []int{1, 3, 4}
-	l2 := arryToSinglyList(nums2)
-	result := mergeTwoLists(l1, l2)
-	fmtList(result)
+func TestDeleteDuplicates(t *testing.T) {
+	// 1->1->2
+	l1 := arryToSinglyList([]int{1,1,2})
+	newl1 := deleteDuplicates(l1)
+	fmtList(newl1)
 }
 
 func arryToSinglyList(nums []int) *ListNode {
@@ -32,7 +28,7 @@ func fmtList(l *ListNode) {
 		return
 	}
 
-	for l.Next != nil {
+	for l != nil {
 		fmt.Printf(" %d ", l.Val)
 		l = l.Next
 	}
