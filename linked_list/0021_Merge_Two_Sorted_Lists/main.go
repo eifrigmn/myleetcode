@@ -1,5 +1,7 @@
 package linked_list
 
+import "myleetcode/util"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -7,10 +9,7 @@ package linked_list
  *     Next *ListNode
  * }
  */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+type ListNode = util.ListNode
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	// 设立观察哨

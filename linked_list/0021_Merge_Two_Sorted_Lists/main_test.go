@@ -1,39 +1,23 @@
 package linked_list
 
 import (
-	"fmt"
+	"myleetcode/util"
+	"reflect"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestMergeTwoLists(t *testing.T) {
-	// 1->2->4
-	nums1 := []int{1, 2, 4}
-	l1 := arryToSinglyList(nums1)
-	// 1->3->4
-	nums2 := []int{1, 3, 4}
-	l2 := arryToSinglyList(nums2)
-	result := mergeTwoLists(l1, l2)
-	fmtList(result)
-}
-
-func arryToSinglyList(nums []int) *ListNode {
-	head := &ListNode{}
-	result := head
-	for i := 0; i < len(nums); i++ {
-		head.Next = &ListNode{Val: nums[i]}
-		head = head.Next
-	}
-	return result.Next
-}
-
-func fmtList(l *ListNode) {
-	if l == nil {
-		fmt.Println("空链表")
-		return
-	}
-
-	for l.Next != nil {
-		fmt.Printf(" %d ", l.Val)
-		l = l.Next
-	}
+	Convey("merge two lists", t, func() {
+		// 1->2->4
+		nums1 := []int{1, 2, 4}
+		l1 := util.IntsToSList(nums1)
+		// 1->3->4
+		nums2 := []int{1, 3, 4}
+		l2 := util.IntsToSList(nums2)
+		result := mergeTwoLists(l1, l2)
+		resultArry := util.SListToInts(result)
+		So(reflect.DeepEqual(resultArry, []int{1, 1, 2, 3, 4, 4}), ShouldBeTrue)
+	})
 }

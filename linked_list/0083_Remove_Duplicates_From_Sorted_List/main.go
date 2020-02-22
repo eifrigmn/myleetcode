@@ -1,5 +1,7 @@
 package linked_list
 
+import "myleetcode/util"
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -8,10 +10,7 @@ package linked_list
  * }
  */
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+type ListNode = util.ListNode
 
 func deleteDuplicates(head *ListNode) *ListNode {
 	result := head
