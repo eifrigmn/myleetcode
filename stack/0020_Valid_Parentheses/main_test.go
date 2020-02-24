@@ -1,8 +1,9 @@
-package src
+package stack
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestIsValid(t *testing.T) {
