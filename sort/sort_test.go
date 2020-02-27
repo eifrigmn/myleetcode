@@ -32,3 +32,9 @@ func TestSelectionSort(t *testing.T) {
 		So(reflect.DeepEqual(nums, sortedNums), ShouldBeTrue)
 	})
 }
+
+func TestMergeSort(t *testing.T) {
+	Convey("归并排序", t, func() {
+		So(reflect.DeepEqual(mergeSort(nums), sortedNums), ShouldBeTrue)
+	})
+}
