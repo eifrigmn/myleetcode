@@ -46,3 +46,11 @@ func Ints2ListWithCycle(nums []int, pos int) *ListNode {
 	tail.Next = c
 	return head
 }
+
+// head must Not be nil
+func TailOf(head *ListNode) *ListNode {
+	for head.Next != nil {
+		head = head.Next
+	}
+	return head
+}

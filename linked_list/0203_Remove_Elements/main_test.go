@@ -4,8 +4,8 @@ import (
 	"myleetcode/util"
 	"reflect"
 	"testing"
-
-	. "github.com/smartystreets/goconvey/convey"
+. "github.com/smartystreets/goconvey/convey"
+	
 )
 
 func TestRemoveElements(t *testing.T) {
