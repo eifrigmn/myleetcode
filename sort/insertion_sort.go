@@ -18,3 +18,17 @@ func insertionSort(nums []int) {
 		nums[j+1] = val
 	}
 }
+
+func insertionSort1(nums []int) {
+	if len(nums) < 2 {
+		return
+	}
+
+	for i := 1; i < len(nums); i++ {
+		j := i - 1
+		for j >= 0 && nums[j] > nums[j+1] {
+			nums[j], nums[j+1] = nums[j+1], nums[j]
+			j--
+		}
+	}
+}

@@ -22,7 +22,7 @@ func TestBubbleSort(t *testing.T) {
 
 func TestInsertionSort(t *testing.T) {
 	Convey("插入排序", t, func() {
-		insertionSort(nums)
+		insertionSort1(nums)
 		So(reflect.DeepEqual(nums, sortedNums), ShouldBeTrue)
 	})
 }
