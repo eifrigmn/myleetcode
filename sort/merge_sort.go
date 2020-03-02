@@ -23,14 +23,12 @@ func merge(left []int, right []int) []int {
 		}
 	}
 
-	for len(left) != 0 {
-		result = append(result, left[0])
-		left = left[1:]
+	if len(left) != 0 {
+		result = append(result, left...)
 	}
 
-	for len(right) != 0 {
-		result = append(result, right[0])
-		right = right[1:]
+	if len(right) != 0 {
+		result = append(result, right...)
 	}
 
 	return result
