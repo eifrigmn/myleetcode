@@ -41,20 +41,45 @@ func IntsToTreeNode(nums []int) *TreeNode {
 	return root
 }
 
+// Tree2ints 把 *TreeNode 按照行还原成 []int
+func TreeToInts(tn *TreeNode) []int {
+	res := make([]int, 0, 1024)
+
+	queue := []*TreeNode{tn}
+
+	for len(queue) > 0 {
+		size := len(queue)
+		for i := 0; i < size; i++ {
+			nd := queue[i]
+			if nd == nil {
+				res = append(res, NULL)
+			} else {
+				res = append(res, nd.Val)
+				queue = append(queue, nd.Left, nd.Right)
+			}
+		}
+		queue = queue[size:]
+	}
+
+	i := len(res)
+	for i > 0 && res[i-1] == NULL {
+		i--
+	}
+
+	return res[:i]
+}
+
 // 前序遍历
 func TreeToPreorder(root *TreeNode) []int {
 	if root == nil {
 		return nil
 	}
 
-	var nums []int
-	nums[0] = root.Val
-
 	// 只有一个节点
 	if root.Left == nil && root.Right == nil {
 		return []int{root.Val}
 	}
-
+	nums := []int{root.Val}
 	nums = append(nums, TreeToPreorder(root.Left)...)
 	nums = append(nums, TreeToPreorder(root.Right)...)
 	return nums
@@ -63,15 +88,29 @@ func TreeToPreorder(root *TreeNode) []int {
 // 中序遍历
 func TreeToInorder(root *TreeNode) []int {
 	if root == nil {
-		return nil 
+		return nil
 	}
 
 	if root.Left == nil && root.Right == nil {
-		return []int{root.Val} 
+		return []int{root.Val}
 	}
-
+	var res []int
 	res = TreeToInorder(root.Left)
 	res = append(res, root.Val)
 	res = append(res, TreeToInorder(root.Right)...)
-	return res 
+	return res
+}
+
+func TreeToPostorder(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	if root.Left == nil && root.Right == nil {
+		return []int{root.Val}
+	}
+	res := TreeToPostorder(root.Left)
+	res = append(res, TreeToPostorder(root.Right)...)
+	res = append(res, root.Val)
+	return res
 }
