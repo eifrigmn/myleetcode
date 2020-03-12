@@ -1,18 +1,19 @@
 package array
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestFindKthLargest(t *testing.T) {
 	Convey("find kth largest", t, func() {
-		nums1 := []int{3,2,1,5,6,4}
+		nums1 := []int{3, 2, 1, 5, 6, 4}
 		k1 := 2
-		So(findKthLargest(nums1, k1), ShouldEqual, 5)
+		So(findKthLargest2(nums1, k1), ShouldEqual, 5)
 		nums2 := []int{3,2,3,1,2,4,5,5,6}
 		k2 := 4
-		So(findKthLargest(nums2, k2), ShouldEqual, 4)
+		So(findKthLargest2(nums2, k2), ShouldEqual, 4)
 	})
 }
 
