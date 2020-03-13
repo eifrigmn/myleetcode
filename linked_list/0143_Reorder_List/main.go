@@ -19,7 +19,7 @@ func reorderList(head *ListNode) {
 	rgt := mid.Next
 	rgt = reverse(rgt)
 	mid.Next = nil
-	curr := head 
+	curr := head
 	for curr != nil && rgt != nil {
 		tmpRgt := rgt.Next
 		tmpCurr := curr.Next
@@ -40,7 +40,7 @@ func findMiddle(head *ListNode) *ListNode {
 	return slow
 }
 
-func reverse(head *ListNode) *ListNode{
+func reverse(head *ListNode) *ListNode {
 	var prev *ListNode
 	for head != nil {
 		head.Next, prev, head = prev, head, head.Next
