@@ -1,7 +1,7 @@
 package linked_list
 
 func isPalindrome2(head *ListNode) bool {
-	var nums []int 
+	var nums []int
 	fast, slow := head, head
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
@@ -12,7 +12,7 @@ func isPalindrome2(head *ListNode) bool {
 		// 节点为奇数个
 		slow = slow.Next
 	}
-	for slow!= nil && slow.Val == nums[len(nums)-1] {
+	for slow != nil && slow.Val == nums[len(nums)-1] {
 		slow = slow.Next
 		nums = nums[:len(nums)-1]
 	}
