@@ -1,4 +1,4 @@
-package src
+package _0007
 
 import (
 	"fmt"
