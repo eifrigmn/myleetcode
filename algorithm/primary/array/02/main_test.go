@@ -6,7 +6,7 @@ import (
 )
 
 func TestMaxProfit(t *testing.T) {
-	Convey("removeDuplicates", t, func() {
+	Convey("maxProfit", t, func() {
 		// [7,1,5,3,6,4]
 		prices := []int{7,1,5,3,6,4}
 		income := maxProfit(prices)
