@@ -34,7 +34,7 @@ func myAtoi(str string) int {
 				} else if !isNegative && result > math.MaxInt32{
 					return math.MaxInt32
 				}
-				num := str[i] - 48
+				num := str[i] - '0'
 				result = result*10+int(num)
 				i++
 				continue
