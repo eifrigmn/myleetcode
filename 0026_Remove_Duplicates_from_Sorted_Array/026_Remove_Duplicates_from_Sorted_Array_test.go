@@ -1,4 +1,4 @@
-package src
+package _0026
 
 import "testing"
 
