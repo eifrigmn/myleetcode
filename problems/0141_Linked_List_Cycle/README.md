@@ -14,7 +14,7 @@
 解释：链表中有一个环，其尾部连接到第二个节点。
 ```
 
-![circularlinkedlist_test1](../assets/circularlinkedlist_test1.png)
+![circularlinkedlist_test1](../../assets/circularlinkedlist_test1.png)
 
 示例 2：
 
@@ -24,7 +24,7 @@
 解释：链表中有一个环，其尾部连接到第一个节点。
 ~~~
 
-![circularlinkedlist_test2](../assets/circularlinkedlist_test2.png)
+![circularlinkedlist_test2](../../assets/circularlinkedlist_test2.png)
 
 示例 3：
 
@@ -34,7 +34,7 @@
 解释：链表中没有环。
 ~~~
 
-![circularlinkedlist_test3](../assets/circularlinkedlist_test3.png)
+![circularlinkedlist_test3](../../assets/circularlinkedlist_test3.png)
 
 ### 解题思路
 

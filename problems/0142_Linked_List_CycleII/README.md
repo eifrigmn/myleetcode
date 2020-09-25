@@ -16,7 +16,7 @@
 解释：链表中有一个环，其尾部连接到第二个节点。
 ~~~
 
-![circularlinkedlist_test1](../assets/circularlinkedlist_test1.png)
+![circularlinkedlist_test1](../../assets/circularlinkedlist_test1.png)
 
 **示例2：**
 
@@ -26,7 +26,7 @@
 解释：链表中有一个环，其尾部连接到第一个节点。
 ~~~
 
-![circularlinkedlist_test1](../assets/circularlinkedlist_test2.png)
+![circularlinkedlist_test1](../../assets/circularlinkedlist_test2.png)
 
 **示例3：**
 
@@ -36,7 +36,7 @@
 解释：链表中没有环。
 ~~~
 
-![circularlinkedlist_test1](../assets/circularlinkedlist_test3.png)
+![circularlinkedlist_test1](../../assets/circularlinkedlist_test3.png)
 
 **进阶：**
 
@@ -50,7 +50,7 @@
 
 快慢指针再次相遇的点，即为环的起始点
 
-![142_solution](../assets/142_solution.png)
+![142_solution](../../assets/142_solution.png)
 
 ### 参考
 

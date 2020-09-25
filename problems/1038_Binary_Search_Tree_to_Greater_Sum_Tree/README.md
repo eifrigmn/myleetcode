@@ -12,7 +12,7 @@
 
 **示例：**
 
-![tree](../assets/tree.png)
+![tree](../../assets/tree.png)
 
 ~~~
 输入：[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
