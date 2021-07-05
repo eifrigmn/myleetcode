@@ -1,18 +1,19 @@
 package _09
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestLongestCommonPrefix(t *testing.T) {
 	Convey("最长公共前缀", t, func() {
 		var strs []string
 		// ["flower","flow","flight"] -> "fl"
-		strs = []string{"flower","flow","flight"}
-		So(longestCommonPrefix(strs), ShouldEqual, "fl")
+		strs = []string{"flower", "flow", "flight"}
+		So(longestCommonPrefix1(strs), ShouldEqual, "fl")
 		// ["dog","racecar","car"] -> ""
-		strs = []string{"dog","racecar","car"}
-		So(longestCommonPrefix(strs), ShouldEqual, "")
+		strs = []string{"dog", "racecar", "car"}
+		So(longestCommonPrefix1(strs), ShouldEqual, "")
 	})
 }
