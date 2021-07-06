@@ -1,9 +1,10 @@
 package _06
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"myleetcode/util"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestHasCycle(t *testing.T) {
@@ -12,14 +13,17 @@ func TestHasCycle(t *testing.T) {
 		//	  ^			 |
 		//    |__________|
 		l1 := util.Ints2ListWithCycle([]int{3, 2, 0, -4}, 1)
-		So(hasCycle(l1), ShouldBeTrue)
+		So(hasCycle2(l1), ShouldBeTrue)
 		// 1->2-|
 		// ^    |
 		// |____|
-		l2 := util.Ints2ListWithCycle([]int{1,2}, 0)
-		So(hasCycle(l2), ShouldBeTrue)
+		l2 := util.Ints2ListWithCycle([]int{1, 2}, 0)
+		So(hasCycle1(l2), ShouldBeTrue)
 		// 1
 		l3 := util.Ints2ListWithCycle([]int{1}, -1)
-		So(hasCycle(l3), ShouldBeFalse)
+		So(hasCycle1(l3), ShouldBeFalse)
+		// 1->2
+		l4 := util.Ints2ListWithCycle([]int{1, 2}, -1)
+		So(hasCycle2(l4), ShouldBeFalse)
 	})
 }

@@ -1,9 +1,10 @@
 package _05
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"myleetcode/util"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestIsPalindrome(t *testing.T) {
@@ -11,11 +12,15 @@ func TestIsPalindrome(t *testing.T) {
 		// 1->2
 		// false
 		var l *ListNode
-		l = util.IntsToSList([]int{1,2})
-		So(isPalindrome(l), ShouldBeFalse)
+		l = util.IntsToSList([]int{1, 2})
+		So(isPalindrome1(l), ShouldBeFalse)
 		// 1->2->2->1
 		// true
-		l = util.IntsToSList([]int{1,2,2,1})
-		So(isPalindrome(l), ShouldBeTrue)
+		l = util.IntsToSList([]int{1, 2, 2, 1})
+		So(isPalindrome1(l), ShouldBeTrue)
+		// 1->1->2->1
+		// false
+		l = util.IntsToSList([]int{1, 1, 2, 1})
+		So(isPalindrome1(l), ShouldBeFalse)
 	})
 }
