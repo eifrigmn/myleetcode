@@ -10,15 +10,6 @@ func romanToInt(s string) int {
 		'D': 500,
 		'M': 1000,
 	}
-
-	// if len(s) == 0 {
-	// 	return 0
-	// }
-
-	// if len(s) == 1 {
-	// 	return mp[s[0]]
-	// }
-
 	var result int
 	for len(s) > 0 {
 		if len(s) > 1 && (s[:2] == "IV" || s[:2] == "IX" || s[:2] == "XL" || s[:2] == "XC" || s[:2] == "CD" || s[:2] == "CM") {
