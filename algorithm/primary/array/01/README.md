@@ -45,3 +45,6 @@ for (int i = 0; i < len; i++) {
 }
 ```
 
+### 题解
+
+1. [双指针](./fast-slow-priv.md)
