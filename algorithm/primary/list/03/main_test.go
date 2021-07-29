@@ -14,7 +14,7 @@ func TestReverseList(t *testing.T) {
 		var rl, l *ListNode
 		l = util.IntsToSList([]int{1, 2, 3, 4, 5})
 		//rl = reverseList(l)
-		rl = reverseList2(l)
+		rl = reverseList_stack(l)
 		So(reflect.DeepEqual(util.SListToInts(rl), []int{5, 4, 3, 2, 1}), ShouldBeTrue)
 	})
 }
