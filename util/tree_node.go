@@ -101,6 +101,23 @@ func TreeToInorder(root *TreeNode) []int {
 	return res
 }
 
+// 中序遍历非递归
+func TreeToInorder1(root *TreeNode) []int {
+	var stack []*TreeNode
+	var res []int
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1]
+		res = append(res, root.Val)
+		stack = stack[:len(stack)-1]
+		root = root.Right
+	}
+	return res
+}
+
 func TreeToPostorder(root *TreeNode) []int {
 	if root == nil {
 		return nil
