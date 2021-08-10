@@ -26,3 +26,15 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	}
 	return result
 }
+
+func deleteDuplicates1(head *ListNode) *ListNode {
+	var h = head
+	for h != nil {
+		if h.Next != nil && h.Val == h.Next.Val {
+			h.Next = h.Next.Next
+			continue
+		}
+		h = h.Next
+	}
+	return head
+}
