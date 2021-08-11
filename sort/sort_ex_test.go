@@ -22,7 +22,7 @@ func TestBubbleSort(t *testing.T) {
 
 func TestInsertionSort(t *testing.T) {
 	Convey("插入排序", t, func() {
-		nums = []int{4,1,3,2}
+		nums = []int{4, 1, 3, 2}
 		sort.InsertSort(nums)
 		So(reflect.DeepEqual(nums, sortedNums), ShouldBeTrue)
 	})
@@ -35,16 +35,16 @@ func TestInsertionSort(t *testing.T) {
 //	})
 //}
 //
-//func TestMergeSort(t *testing.T) {
-//	Convey("归并排序", t, func() {
-//		So(reflect.DeepEqual(mergeSort(nums), sortedNums), ShouldBeTrue)
-//	})
-//}
-//
-//func TestQuickSort(t *testing.T) {
-//	Convey("快速排序", t, func() {
-//		n := []int{6,1,3,5,7,2,4,9,11,8}
-//		fmt.Println("*****", findKthBiggest(n, 3))
-//		fmt.Printf("****** %v", n)
-//	})
-//}
+func TestMergeSort(t *testing.T) {
+	Convey("归并排序", t, func() {
+		result := sort.MergeSort(nums)
+		So(reflect.DeepEqual(result, sortedNums), ShouldBeTrue)
+	})
+}
+
+func TestQuickSort(t *testing.T) {
+	Convey("快速排序", t, func() {
+		sort.Quicksort(nums)
+		So(reflect.DeepEqual(nums, sortedNums), ShouldBeTrue)
+	})
+}
