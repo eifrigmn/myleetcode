@@ -5,14 +5,14 @@ func lengthOfLongestSubstring(s string) int {
 		return len(s)
 	}
 	var start, end, ans int
-	var mp = map[string]int{}
-	for i:= 0;end<len(s);i++{
-		_, ok := mp[string(s[i])]
+	var mp = make(map[uint8]int, len(s))
+	for i := 0; end < len(s); i++ {
+		_, ok := mp[s[i]]
 		if !ok {
-			mp[string(s[i])] = i
+			mp[s[i]] = i
 		} else {
-			start = max(mp[string(s[i])] + 1, start)
-			mp[string(s[i])] = i
+			start = max(mp[s[i]]+1, start)
+			mp[s[i]] = i
 		}
 		ans = max(end-start+1, ans)
 		end++
