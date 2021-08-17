@@ -1,15 +1,16 @@
 package _0005
 
 import (
-	. "github.com/smartystreets/goconvey/convey"
 	"testing"
+
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestLongestPalindrome(t *testing.T) {
 	Convey("longestPalindrome", t, func() {
 		s := "babad"
 		targets := []string{"bab", "aba"}
-		result := longestPalindrome(s)
+		result := longestPalindrome2(s)
 		var flag bool
 		for _, target := range targets {
 			if result == target {
@@ -21,7 +22,16 @@ func TestLongestPalindrome(t *testing.T) {
 
 		s = "cbbd"
 		target := "bb"
-		result = longestPalindrome(s)
+		result = longestPalindrome2(s)
 		So(result, ShouldEqual, target)
+
+		s = "a"
+		result = longestPalindrome2(s)
+		So(result, ShouldEqual, "a")
+
+		s = "ac"
+		result = longestPalindrome2(s)
+		So(result, ShouldEqual, "a")
+
 	})
 }
