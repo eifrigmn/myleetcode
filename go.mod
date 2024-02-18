@@ -11,6 +11,7 @@ require (
 	github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2 v2.0.0-20210714051018-7f394d0d0a69 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/lyft/protoc-gen-star v0.5.3 // indirect
+	github.com/magiconair/properties v1.8.5
 	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/smartystreets/goconvey v1.6.4
