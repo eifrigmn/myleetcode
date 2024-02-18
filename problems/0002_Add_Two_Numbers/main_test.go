@@ -15,20 +15,20 @@ func TestAddTwoNumbers(t *testing.T) {
 		target := []int{7, 0, 8}
 		l1 := util.IntsToSList(num1)
 		l2 := util.IntsToSList(num2)
-		result := addTwoNumbers1(l1, l2)
+		result := _addTwoNumbers(l1, l2)
 		resultArr := util.SListToInts(result)
 		So(reflect.DeepEqual(resultArr, target), ShouldBeTrue)
 		num1 = []int{5}
 		num2 = []int{5}
 		target = []int{0, 1}
-		result = addTwoNumbers1(util.IntsToSList(num1), util.IntsToSList(num2))
+		result = _addTwoNumbers(util.IntsToSList(num1), util.IntsToSList(num2))
 		resultArr = util.SListToInts(result)
 		So(reflect.DeepEqual(resultArr, target), ShouldBeTrue)
 
 		num1 = []int{0}
 		num2 = []int{7, 3}
 		target = []int{7, 3}
-		result = addTwoNumbers1(util.IntsToSList(num1), util.IntsToSList(num2))
+		result = _addTwoNumbers(util.IntsToSList(num1), util.IntsToSList(num2))
 		resultArr = util.SListToInts(result)
 		So(reflect.DeepEqual(resultArr, target), ShouldBeTrue)
 
@@ -38,7 +38,7 @@ func TestAddTwoNumbers(t *testing.T) {
 		num1 = []int{2, 4, 9}
 		num2 = []int{5, 6, 4, 9}
 		target = []int{7, 0, 4, 0, 1}
-		result = addTwoNumbers1(util.IntsToSList(num1), util.IntsToSList(num2))
+		result = _addTwoNumbers(util.IntsToSList(num1), util.IntsToSList(num2))
 		resultArr = util.SListToInts(result)
 		So(reflect.DeepEqual(resultArr, target), ShouldBeTrue)
 
@@ -47,7 +47,7 @@ func TestAddTwoNumbers(t *testing.T) {
 		num1 = []int{9, 9, 9, 9, 9, 9, 9}
 		num2 = []int{9, 9, 9, 9}
 		target = []int{8, 9, 9, 9, 0, 0, 0, 1}
-		result = addTwoNumbers1(util.IntsToSList(num1), util.IntsToSList(num2))
+		result = _addTwoNumbers(util.IntsToSList(num1), util.IntsToSList(num2))
 		resultArr = util.SListToInts(result)
 		So(reflect.DeepEqual(resultArr, target), ShouldBeTrue)
 	})

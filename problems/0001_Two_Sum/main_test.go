@@ -1,7 +1,7 @@
 package _0001
 
 import (
-	"fmt"
+	"github.com/magiconair/properties/assert"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -9,8 +9,15 @@ import (
 
 func TestTwoSum(t *testing.T) {
 	Convey("twoSum", t, func() {
-		nums := []int{2, 7, 11, 15}
-		target := 22
-		fmt.Println(twoSum(nums, target))
+		//nums := []int{2, 7, 11, 15}
+		//target := 22
+		//result := _twoSum(nums, target)
+		//t.Log(result)
+		//assert.Equal(t, result, []int{1, 3})
+		nums := []int{3, 3}
+		target := 6
+		result := _twoSum(nums, target)
+		t.Log(result)
+		assert.Equal(t, result, []int{0, 1})
 	})
 }
