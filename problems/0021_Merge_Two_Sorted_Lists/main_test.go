@@ -16,7 +16,7 @@ func TestMergeTwoLists(t *testing.T) {
 		// 1->3->4
 		nums2 := []int{1, 3, 4}
 		l2 := util.IntsToSList(nums2)
-		result := mergeTwoLists(l1, l2)
+		result := _mergeTwoLists(l1, l2)
 		resultArry := util.SListToInts(result)
 		So(reflect.DeepEqual(resultArry, []int{1, 1, 2, 3, 4, 4}), ShouldBeTrue)
 	})

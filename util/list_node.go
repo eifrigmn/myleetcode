@@ -54,3 +54,11 @@ func TailOf(head *ListNode) *ListNode {
 	}
 	return head
 }
+
+func IntsToSLists(nums [][]int) []*ListNode {
+	var result = make([]*ListNode, len(nums))
+	for k, num := range nums {
+		result[k] = IntsToSList(num)
+	}
+	return result
+}

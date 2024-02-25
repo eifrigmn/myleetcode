@@ -27,7 +27,7 @@ func TestGetIntersectionNode(t *testing.T) {
 		tailB := tailOf(hb)
 		tailA.Next = tail
 		tailB.Next = tail
-		So(getIntersectionNode(ha, hb), ShouldEqual, tail)
+		So(_getIntersectionNode(ha, hb), ShouldEqual, tail)
 		// 0->9->1-|
 		// 		   2->4
 		//       3-|
@@ -38,17 +38,17 @@ func TestGetIntersectionNode(t *testing.T) {
 		tailB = tailOf(hb)
 		tailA.Next = tail
 		tailB.Next = tail
-		So(getIntersectionNode(ha, hb), ShouldEqual, tail)
+		So(_getIntersectionNode(ha, hb), ShouldEqual, tail)
 		// 2->6->4
-		// 		   
+		//
 		//    1->5
-		ha = util.IntsToSList([]int{2,6,4})
-		hb = util.IntsToSList([]int{1,5})
+		ha = util.IntsToSList([]int{2, 6, 4})
+		hb = util.IntsToSList([]int{1, 5})
 		// tail = util.IntsToSList([]int{})
 		// tailA = tailOf(ha)
 		// tailB = tailOf(hb)
 		// tailA.Next = tail
 		// tailB.Next = tail
-		So(getIntersectionNode(ha, hb), ShouldBeNil)
+		So(_getIntersectionNode(ha, hb), ShouldBeNil)
 	})
 }
