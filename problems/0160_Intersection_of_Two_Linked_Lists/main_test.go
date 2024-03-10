@@ -50,5 +50,14 @@ func TestGetIntersectionNode(t *testing.T) {
 		// tailA.Next = tail
 		// tailB.Next = tail
 		So(_getIntersectionNode(ha, hb), ShouldBeNil)
+		//  -|
+		// 	 3
+		// 2-|
+		ha = nil
+		hb = util.IntsToSList([]int{2})
+		tail = util.IntsToSList([]int{3})
+		ha = tail
+		hb.Next = tail
+		So(_getIntersectionNode(ha, hb), ShouldEqual, tail)
 	})
 }
