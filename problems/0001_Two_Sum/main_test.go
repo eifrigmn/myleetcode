@@ -21,3 +21,8 @@ func TestTwoSum(t *testing.T) {
 		assert.Equal(t, result, []int{0, 1})
 	})
 }
+
+func TestArray(t *testing.T) {
+	arr := [...]int{1, 2, 3}
+	t.Log(arr)
+}
