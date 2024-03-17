@@ -8,13 +8,29 @@ package _0142
  * }
  */
 func _detectCycle(head *ListNode) *ListNode {
-	var mp = make(map[*ListNode]struct{})
-	for head != nil {
-		if _, ok := mp[head]; ok {
-			return head
+	var crossNode = getCrossNode(head)
+	if crossNode == nil {
+		return nil
+	}
+	var h = head
+	for h != nil && crossNode != nil {
+		if h == crossNode {
+			return crossNode
 		}
-		mp[head] = struct{}{}
-		head = head.Next
+		h = h.Next
+		crossNode = crossNode.Next
+	}
+	return nil
+}
+
+func getCrossNode(head *ListNode) *ListNode {
+	var slow, fast = head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return fast
+		}
 	}
 	return nil
 }

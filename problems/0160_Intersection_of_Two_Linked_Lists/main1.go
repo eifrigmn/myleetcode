@@ -13,12 +13,14 @@ func _getIntersectionNode(headA, headB *ListNode) *ListNode {
 	for p1 != p2 {
 		if p1 == nil {
 			p1 = headB
+		} else {
+			p1 = p1.Next
 		}
 		if p2 == nil {
 			p2 = headA
+		} else {
+			p2 = p2.Next
 		}
-		p1 = p1.Next
-		p2 = p2.Next
 	}
 	return p1
 }

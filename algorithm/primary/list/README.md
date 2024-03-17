@@ -2,7 +2,9 @@
 
 ## 双指针解法
 
-### 1、合并两个有序链表
+### 1、合并链表
+
+> 顺序遍历节点，比较大小后合并，注意合并前要暂存被合并的节点后的链表内容
 
 #### [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
@@ -36,49 +38,195 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 
 #### [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
+~~~go
+// k个升序链表两两合并，递归调用，直到合并成一个升序链表
+func mergeKLists(lists []*ListNode) *ListNode {
+	if len(lists) == 0 {
+		return nil
+	} else if len(lists) == 1 {
+		return lists[0]
+	}
+	mid := len(lists) / 2
+	return mergeTwoList(mergeKLists(lists[:mid]), mergeKLists(lists[mid:]))
+}
 
+func mergeTwoList(list1, list2 *ListNode) *ListNode {
+	var result = new(ListNode)
+	var head = result
+	for list1 != nil && list2 != nil {
+		if list1.Val < list2.Val {
+			head.Next = list1
+			list1 = list1.Next
+		} else {
+			head.Next = list2
+			list2 = list2.Next
+		}
+		head = head.Next
+	}
+	if list1 != nil {
+		head.Next = list1
+	}
+	if list2 != nil {
+		head.Next = list2
+	}
+	return result.Next
+}
+~~~
 
-2、链表的分解
+### 2、链表的分解
 
-3、合并 `k` 个有序链表
+分别设置两个虚拟投节点，指向分割后的两个链表，遍历原链表，把符合条件的节点分配到分割后的两个链表中
 
-4、寻找单链表的倒数第 `k` 个节点
+#### [86. 分隔链表](https://leetcode.cn/problems/partition-list/)
 
-5、寻找单链表的中点
+~~~go
+func partition(head *ListNode, x int) *ListNode {
+	var result = new(ListNode)
+	var lft = result
+	var rgt = new(ListNode)
+	var r = rgt
+	for head != nil {
+		tmp := head.Next
+		if head.Val < x {
+			lft.Next = head
+			lft = lft.Next
+		} else {
+			r.Next = head
+			r = r.Next
+			r.Next = nil
+		}
+		head = tmp
+	}
+	lft.Next = rgt.Next
+	return result.Next
+}
+~~~
 
-6、判断单链表是否包含环并找出环起点
+### 3、寻找单链表的倒数第 `k` 个节点
 
-7、判断两个单链表是否相交并找出交点
+设置两个指针，p1与p2相差k个节点，当p2走到链表尾时，p1指向的节点即为链表倒数第k个节点
 
-| leetcode题                                                   | 知识点   | 难度 |
-| ------------------------------------------------------------ | -------- | ---- |
-| [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/) | 快慢指针 | 简单 |
-| [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/) | 快慢指针 | 中等 |
-| [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/) |          |      |
-| [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) |          |      |
-| [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) |          |      |
-| [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) |          |      |
-| [86. 分隔链表](https://leetcode.cn/problems/partition-list/) |          |      |
-| [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/) |          |      |
+#### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
 
+~~~go
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+	var q = new(ListNode)
+	q.Next = head
+	var p1 = q
+	var p2 = q
+	for i := 0; i < n+1; i++ {
+		if p1 == nil {
+			p1 = head
+		} else {
+			p1 = p1.Next
+		}
+	}
+	for p1 != nil {
+		p1 = p1.Next
+		p2 = p2.Next
+	}
+	p2.Next = p2.Next.Next
+	return q.Next
+}
+~~~
 
+### 4、寻找单链表的中点
 
-## 递归解法
+快慢指针，快指针每次移动2步，慢指针每次移动1步，快指针走完时，满指针指向的节点即为单链表的中点
 
-## 如何K个一组反转链表
+#### [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
 
-## 如何判断回文链表
+~~~go
+func middleNode(head *ListNode) *ListNode {
+	var slow, fast = head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+	return slow
+}
+~~~
 
+### 5、链表中有环
 
+快慢指针，快指针每次移动2步，慢指针每次移动1步，
 
++ 若二者相遇，则链表中有环
++ 二者相遇后，任意一个指针指向链表的头节点，两个指针依次每次移动1步，二者再次相遇时，则找到环的起点
 
+[141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
 
-链表需要注意相关的指针操作，即链表头和链表节点的区别
+~~~go
+func hasCycle(head *ListNode) bool {
+	var slow, fast = head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return true
+		}
+	}
+	return false
+}
+~~~
 
-## 快慢指针法
-如查找链表的中点
-判断链表中是否有环
-## 双链表
-如翻转链表
+#### [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
+
+~~~go
+func detectCycle(head *ListNode) *ListNode {
+	var crossNode = getCrossNode(head)
+	if crossNode == nil {
+		return nil
+	}
+	var h = head
+	for h != nil && crossNode != nil {
+		if h == crossNode {
+			return crossNode
+		}
+		h = h.Next
+		crossNode = crossNode.Next
+	}
+	return nil
+}
+
+func getCrossNode(head *ListNode) *ListNode {
+	var slow, fast = head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return fast
+		}
+	}
+	return nil
+}
+~~~
+
+### 6、链表是否相交
+
+设置两个指针p1和p2，分别指向两个链表，依次遍历，p1或者p2遍历完当前链表时，将其指向另外一条链表继续遍历，当p1=p2时，则该节点为链表的相交节点。
+
+#### [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
+
+~~~go
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	var p1 = headA
+	var p2 = headB
+	for p1 != p2 {
+		if p1 == nil {
+			p1 = headB
+		} else {
+			p1 = p1.Next
+		}
+		if p2 == nil {
+			p2 = headA
+		} else {
+			p2 = p2.Next
+		}
+	}
+	return p1
+}
+~~~
+
 ## 单链表实现LRU算法
 
