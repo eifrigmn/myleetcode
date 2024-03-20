@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func isValidSudoku(board [][]byte) bool {
 	var block1 = make(map[byte]struct{})
 	var block2 = make(map[byte]struct{})
@@ -53,4 +55,16 @@ func isValidSudoku(board [][]byte) bool {
 		}
 	}
 	return true
+}
+
+func main() {
+	arr := []int{1, 2, 3}
+	newArr := []*int{}
+	for _, v := range arr {
+		newArr = append(newArr, &v)
+	}
+	for _, v := range newArr {
+		fmt.Println(*v)
+	}
+
 }
