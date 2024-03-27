@@ -6,7 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestRomanToInt(t *testing.T) {
+func TestLengthOfLastWord(t *testing.T) {
 	Convey("最后一个单词的长度", t, func() {
 		s := "Hello World"
 		cnt := lengthOfLastWord(s)

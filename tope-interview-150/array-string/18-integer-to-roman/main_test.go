@@ -6,7 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestRomanToInt(t *testing.T) {
+func TestIntToRoman(t *testing.T) {
 	Convey("整数转罗马数字", t, func() {
 		num := 3
 		result := intToRoman(num)
